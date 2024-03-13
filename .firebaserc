@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pokedex-dd742": {
+      "hosting": {
+        "app": [
+          "pokedex-dd742"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pokedex-dd742"
+  }
+}

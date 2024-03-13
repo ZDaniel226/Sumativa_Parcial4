@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar [color]="'primary'"> <!-- Cambiado a color primario -->
+    <ion-title>
+      Pokédex
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-background">
+  <!-- Contenedor del diseño de la Pokédex -->
+  <div class="pokedex-container">
+    <!-- Cuadro blanco que simula la pantalla de la Pokédex -->
+    <div class="pokedex-screen" [style.background-color]="getBackgroundColor(mainType)">
+      <!-- Tarjeta de Pokémon actual -->
+      <ion-card class="pokemon-card">
+        <ion-img *ngIf="pokemonImage" [src]="pokemonImage" alt="Pokemon Image"></ion-img>
+        <ion-card-header>
+          <!-- Encabezado de la tarjeta con el nombre del Pokémon -->
+          <ion-card-title>{{ cardTitle }}</ion-card-title>
+          <!-- Mostrar tipos del Pokémon -->
+          <ion-card-subtitle *ngIf="types" class="types-label">Types: 
+            <span *ngFor="let type of types.split(',')" class="type" [style.backgroundColor]="typeColors[type.toLowerCase()]">{{ type }}</span>
+          </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <!-- Campo de entrada para el número del Pokémon -->
+          <ion-input type="number" [(ngModel)]="numberValue" (ionChange)="updatePokemonData()"></ion-input>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>
